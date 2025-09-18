@@ -1,7 +1,15 @@
 from django.contrib.auth.models import User
 from django.db import models
-from category.models import Category
 
+
+class Category(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+
+    class Meta:
+        verbose_name_plural = "Categories"
+
+    def __str__(self):
+        return self.name
 
 
 class AdBase(models.Model):
